@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+{{hello}}
+<br>
+{{user}}
+{% endblock content %}
+
+{% block scripts %}
+<script>
+    // JQuery document is loaded to check if its working
+    $(document).ready(function(){
+        console.log('working');
+    });
+</script>
+{% endblock scripts %}
