@@ -12,10 +12,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 import os
+# stock python library path for django
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+print("BASE_DIR: ", BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -120,13 +121,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_FILES_DIRS = [
-    os.path.join(BASE_DIR, 'static_project'),
+STATICFILES_DIRS = [
+    # os.path.join(BASE_DIR, 'static_project'),
+    '/Users/jasondoze13/Desktop/Network/Network/src/static_project',
 ]
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn', 'static_root')
 
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static_cdn', 'media_root')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn', 'static_root')
+
+print("STATIC_ROOT: ", STATIC_ROOT)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'static_cdn', 'media_root')
 
 MEDIA_URL = '/media/'
 
