@@ -39,9 +39,30 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'profiles',
-    'posts'
+    'posts',
+
+    # django all-auth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 ]
+
+SITE_ID = 1
+
+# LOGIN_URL = '/admin/'
+LOGIN_REDIRECT_URL = '/posts/'
+
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_UNIQUE = True
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -66,10 +87,20 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'profiles.context_processors.profile_pic',
+                'profiles.context_processors.invitations_received_no',
             ],
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 WSGI_APPLICATION = 'social.wsgi.application'
 
@@ -131,8 +162,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static_cdn', 'static_root')
 
 print("STATIC_ROOT: ", STATIC_ROOT)
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static_cdn', 'media_root')
+print("MEDIA_ROOT: ", MEDIA_ROOT)
 
 MEDIA_URL = '/media/'
+print("MEDIA_URL: ", MEDIA_URL)
 
 
 # Default primary key field type
