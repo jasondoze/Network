@@ -2,7 +2,7 @@
 
 {% block title %} 
 delete post 
-{% end block title %} 
+{% endblock title %} 
 
 {% block content %} 
 
@@ -22,7 +22,7 @@ delete post
         <div class="ui segment">
             <h3>Delete post?</h3>
             <form action="" method="Post">
-                {% csrf token %} 
+                {% csrf_token %} 
                 <p>Are you sure you want to delete the post?</p>
                 <button type="submit">Submit</button>
             </form>

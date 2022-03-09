@@ -1,11 +1,11 @@
 body {
-    background: #f0ecec !important;
-
+    background: #F8F8F8 !important;
 }
+
 .nav {
-    border-radius: 0px;
+    border-radius: 0px !important;
     padding: 10px 0 10px 0 !important;
-    background-color: #1e1f1e !important;
+    background-color: #396afc !important; 
 }
 
 .mb-7 {
@@ -26,6 +26,10 @@ body {
     margin-bottom: 5px !important;
 }
 
+.w-big {
+    width: 200px !important;
+}
+
 .bwhite-lg {
     background-color: transparent !important;
 }
@@ -37,5 +41,4 @@ body {
 
 .comment-box {
     display: none;
-
 }
